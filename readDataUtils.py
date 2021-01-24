@@ -8,6 +8,12 @@ Based on Vera Sativa's codes
 import csv 
 import ForcedirectedEdgeBundling as feb
 import math
+from numba import float32, jit, prange, float64, njit
+from numba.experimental import jitclass
+from numba.typed import List
+from numba.types import ListType, int16, uint8
+from tqdm.auto import tqdm
+
 #import pickle
 
 def print_edge(edge):
@@ -31,12 +37,18 @@ def _update_bounds(bounds, edge):
     maxy = max(maxy, edge.target.y)
     return (minx, maxx, miny, maxy)
 
-def read_edges_from_csv(csvfilename):
+transf_function = lambda row: (float(row[0]), float(row[1]), float(row[2]), float(row[3]))
+
+def read_edges_from_csv(csvfilename, transform = transf_function, **kargs):
     """Read a csv file and return a list of edges and limit coordinates.
 
     Arguments:
     csvfilename -- string pointing to a csv file. Each row correspond
         to an edge, and contains the coordinates of it source and target.
+    transform -- function that recieves a row and returns an indexable object
+        (tuple, array, list) with transformed data. Default is transform
+        everything to float.
+    kargs -- other arguments to pass to transform
 
     Return:
     edges -- list of edges
@@ -64,8 +76,9 @@ def read_edges_from_csv(csvfilename):
         bounds = math.inf, 0, math.inf, 0
 
         for row in csvreader:
-            source = feb.Point(float(row[0]), float(row[1]))
-            target = feb.Point(float(row[2]), float(row[3]))
+            transformed = transform(row)
+            source = feb.Point(transformed[0], transformed[1])
+            target = feb.Point(transformed[2], transformed[3])
             edge = feb.Edge(source, target)
             edges.append(edge)
             bounds = _update_bounds(bounds, edge)

@@ -1,4 +1,5 @@
-from numba import jitclass, float32, jit, prange, float64, njit
+from numba import float32, jit, prange, float64, njit
+from numba.experimental import jitclass
 from numba.typed import List
 from numba.types import ListType, int16, uint8
 from tqdm.auto import tqdm
