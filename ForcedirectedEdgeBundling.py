@@ -325,7 +325,7 @@ def apply_forces_cycle(edges, subdivision_points_for_edge, compatibility_list_fo
             forces.append(apply_resulting_forces_on_subdivision_points(edges, subdivision_points_for_edge,
                                                                             compatibility_list_for_edge, edge_idx, K, P,
                                                                             S, weights))
-
+        for edge_idx in range(len(edges)):
             for i in range(P + 1): # We want from 0 to P
                 subdivision_points_for_edge[edge_idx][i] = Point(
                     subdivision_points_for_edge[edge_idx][i].x + forces[edge_idx][i].x,
