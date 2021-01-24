@@ -117,7 +117,7 @@ def bundle_and_save_evolution(edges):
                 forces.append(feb.apply_resulting_forces_on_subdivision_points(edges, subdivision_points_for_edge,
                                                                                 compatibility_list_for_edge, edge_idx, feb.K, P,
                                                                                 S, weights))
-
+            for edge_idx in range(len(edges)):
                 for i in range(P + 1): # We want from 0 to P
                     subdivision_points_for_edge[edge_idx][i] = feb.Point(
                         subdivision_points_for_edge[edge_idx][i].x + forces[edge_idx][i].x,
