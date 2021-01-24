@@ -22,7 +22,7 @@ I_initial = 90
 # rate at which iteration number decreases i.e. 2/3
 I_rate = 0.6666667
 
-compatibility_threshold = 0.6
+compatibility_threshold = 0.3
 eps = 1e-6
 
 # Execution settings
