@@ -193,39 +193,29 @@ def edge_midpoint(edge):
 @jit(nopython=True, fastmath=True)
 def update_edge_divisions(edges, subdivision_points_for_edge, P):
     for edge_idx in range(len(edges)):
-        if P == 1:
-            subdivision_points_for_edge[edge_idx].append(edges[edge_idx].source)
-            subdivision_points_for_edge[edge_idx].append(edge_midpoint(edges[edge_idx]))
-            subdivision_points_for_edge[edge_idx].append(edges[edge_idx].target)
-        else:
-            divided_edge_length = compute_divided_edge_length(subdivision_points_for_edge, edge_idx)
-            segment_length = divided_edge_length / (P + 1)
-            current_segment_length = segment_length
-            new_subdivision_points = List()
-            new_subdivision_points.append(edges[edge_idx].source)  # source
-            for i in range(1, len(subdivision_points_for_edge[edge_idx])):
-                old_segment_length = euclidean_distance(subdivision_points_for_edge[edge_idx][i],
-                                                        subdivision_points_for_edge[edge_idx][i - 1])
-                while old_segment_length > current_segment_length:
-                    percent_position = current_segment_length / old_segment_length
-                    new_subdivision_point_x = subdivision_points_for_edge[edge_idx][i - 1].x
-                    new_subdivision_point_y = subdivision_points_for_edge[edge_idx][i - 1].y
+        divided_edge_length = compute_divided_edge_length(subdivision_points_for_edge, edge_idx)
+        segment_length = divided_edge_length / (P + 1)
+        current_node = Point(edges[edge_idx].source.x, edges[edge_idx].source.y)
+        new_subdivision_points = List()
+        new_subdivision_points.append(Point(current_node.x, current_node.y)) # revisar que no se cambie si cambio el source
+        current_segment_length = segment_length
+        i = 1
+        while i < len(subdivision_points_for_edge[edge_idx]):
+            old_segment_length = euclidean_distance(subdivision_points_for_edge[edge_idx][i],current_node)
+            # direction is a vector of length = 1
+            direction_x = (subdivision_points_for_edge[edge_idx][i].x - current_node.x)/old_segment_length
+            direction_y = (subdivision_points_for_edge[edge_idx][i].y - current_node.y)/old_segment_length
+            if current_segment_length > old_segment_length:
+                current_segment_length -= old_segment_length 
+                current_node = Point(subdivision_points_for_edge[edge_idx][i].x, subdivision_points_for_edge[edge_idx][i].y)
+                i += 1
+            else: 
+                current_node.x += current_segment_length * direction_x
+                current_node.y += current_segment_length * direction_y
+                new_subdivision_points.append(Point(current_node.x, current_node.y))
+                current_segment_length = segment_length
 
-                    new_subdivision_point_x += percent_position * (
-                                subdivision_points_for_edge[edge_idx][i].x - subdivision_points_for_edge[edge_idx][
-                            i - 1].x)
-                    new_subdivision_point_y += percent_position * (
-                                subdivision_points_for_edge[edge_idx][i].y - subdivision_points_for_edge[edge_idx][
-                            i - 1].y)
-                    new_subdivision_points.append(Point(new_subdivision_point_x, new_subdivision_point_y))
-
-                    old_segment_length -= current_segment_length
-                    current_segment_length = segment_length
-
-                current_segment_length -= old_segment_length
-
-            new_subdivision_points.append(edges[edge_idx].target)  # target
-            subdivision_points_for_edge[edge_idx] = new_subdivision_points
+        subdivision_points_for_edge[edge_idx] = new_subdivision_points
 
     return subdivision_points_for_edge
 
