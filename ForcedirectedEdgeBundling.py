@@ -67,7 +67,8 @@ def angle_compatibility(edge, oedge):
     v1 = edge_as_vector(edge)
     v2 = edge_as_vector(oedge)
     dot_product = v1.x * v2.x + v1.y * v2.y
-    return math.fabs(dot_product / (edge_length(edge) * edge_length(oedge)))
+    return max(0.0, dot_product / (edge_length(edge) * edge_length(oedge)))
+    #return math.fabs(dot_product / (edge_length(edge) * edge_length(oedge)))
 
 
 @jit(float64(Edge.class_type.instance_type, Edge.class_type.instance_type), nopython=True, fastmath=FASTMATH, nogil=True)
