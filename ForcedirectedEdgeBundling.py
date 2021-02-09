@@ -198,10 +198,13 @@ def update_edge_divisions(edges, subdivision_points_for_edge, P):
         segment_length = divided_edge_length / (P + 1)
         current_node = Point(edges[edge_idx].source.x, edges[edge_idx].source.y)
         new_subdivision_points = List()
+        number_subdiv_points = 0
         new_subdivision_points.append(Point(current_node.x, current_node.y)) # revisar que no se cambie si cambio el source
+        number_subdiv_points += 1
         current_segment_length = segment_length
         i = 1
-        while i < len(subdivision_points_for_edge[edge_idx]):
+        finished = False
+        while not finished:
             old_segment_length = euclidean_distance(subdivision_points_for_edge[edge_idx][i],current_node)
             # direction is a vector of length = 1
             direction_x = (subdivision_points_for_edge[edge_idx][i].x - current_node.x)/old_segment_length
@@ -214,7 +217,10 @@ def update_edge_divisions(edges, subdivision_points_for_edge, P):
                 current_node.x += current_segment_length * direction_x
                 current_node.y += current_segment_length * direction_y
                 new_subdivision_points.append(Point(current_node.x, current_node.y))
+                number_subdiv_points += 1
                 current_segment_length = segment_length
+            finished = number_subdiv_points == P+1
+        new_subdivision_points.append(Point(edges[edge_idx].target.x, edges[edge_idx].target.y)) 
 
         subdivision_points_for_edge[edge_idx] = new_subdivision_points
 
