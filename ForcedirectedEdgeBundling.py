@@ -165,9 +165,9 @@ def build_edge_subdivisions(edges, P_initial=1):
     for i in range(len(edges)):
         subdivision_points_for_edge.append(List.empty_list(pt_cls))
 
-        if P_initial != 1:
-            subdivision_points_for_edge[i].append(edges[i].source)
-            subdivision_points_for_edge[i].append(edges[i].target)
+        #if P_initial != 1:
+        subdivision_points_for_edge[i].append(edges[i].source)
+        subdivision_points_for_edge[i].append(edges[i].target)
 
     return subdivision_points_for_edge
 
