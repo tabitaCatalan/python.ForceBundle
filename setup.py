@@ -1,5 +1,5 @@
 # setup.py
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='forcebundle', 
@@ -12,6 +12,7 @@ setup(
     maintainer_email="tcatalan@dim.uchile.cl",
     py_modules=["ForcedirectedEdgeBundling"], 
     package_dir={"": "src"},
+    packages=find_packages(),
     install_requires=[
         'numba>=0.4',
         'tqdm>=2'
