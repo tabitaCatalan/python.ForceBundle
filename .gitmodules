@@ -1,0 +1,3 @@
+[submodule "lib/aves"]
+	path = lib/aves
+	url = https://github.com/zorzalerrante/aves.git
