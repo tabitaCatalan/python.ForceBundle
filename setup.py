@@ -15,12 +15,6 @@ setup(
     author_email="hola@verasativa.com", 
     maintainer="Tabita Catalán",
     maintainer_email="tcatalan@dim.uchile.cl",
-    #py_modules=[
-    #    "ForcedirectedEdgeBundling", 
-    #    "multicolored_lines", 
-    #    "readDataUtils", 
-    #    "usageHelper"
-    #], 
     #package_dir={"": "src"},
     packages=find_packages(),
     install_requires=[
