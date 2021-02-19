@@ -1,0 +1,37 @@
+include *.md
+include *.py
+include *.txt
+include .bumpversion.cfg
+recursive-include doc_assets *.drawio
+recursive-include doc_assets *.png
+recursive-include lib *.CPG
+recursive-include lib *.DBF
+recursive-include lib *.bat
+recursive-include lib *.coveragerc
+recursive-include lib *.cpg
+recursive-include lib *.csv
+recursive-include lib *.csvtest
+recursive-include lib *.dbf
+recursive-include lib *.editorconfig
+recursive-include lib *.gitkeep
+recursive-include lib *.ipynb
+recursive-include lib *.json
+recursive-include lib *.md
+recursive-include lib *.mplstyle
+recursive-include lib *.prj
+recursive-include lib *.py
+recursive-include lib *.rst
+recursive-include lib *.sbn
+recursive-include lib *.sbx
+recursive-include lib *.shp
+recursive-include lib *.shx
+recursive-include lib *.txt
+recursive-include lib *.xml
+recursive-include lib *.yml
+recursive-include lib Makefile
+recursive-include notebooks *.ipynb
+recursive-include paper *.bib
+recursive-include paper *.md
+recursive-include src *.py
+recursive-include test *.py
+recursive-include test_data *.csv
