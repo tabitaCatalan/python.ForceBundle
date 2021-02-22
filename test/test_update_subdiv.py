@@ -1,6 +1,6 @@
 # Test of updating edge subdivisions 
 
-import unittest, csv, ast
+import unittest
 import ForcedirectedEdgeBundling as feb
 #import update_subdiv_temp as feb
 from numba.typed import List

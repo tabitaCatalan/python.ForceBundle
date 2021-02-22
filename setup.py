@@ -15,8 +15,8 @@ setup(
     author_email="hola@verasativa.com", 
     maintainer="Tabita Catalán",
     maintainer_email="tcatalan@dim.uchile.cl",
-    #package_dir={"": "src"},
-    packages=find_packages(),
+    package_dir={"": "src"},
+    packages=find_packages(where="src", exclude=("tests",)),
     install_requires=[
         'numba>=0.4',
         'tqdm>=2'
@@ -25,11 +25,6 @@ setup(
         "dev": [
             "pytest>=6.0", 
             "bump2version>=1.0"
-        ], 
-        "plots":[
-            "matplotlib >= 3.0", 
-            "numpy >= 1.2", 
-            "notebook >= 6.0"
         ]
     }, 
     classifiers=[
