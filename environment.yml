@@ -1,0 +1,46 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numba >= 0.4 
+  - tdqm 
+  # aves 
+  - black
+  - configparser
+  - flake8
+  - graphviz
+  - isort
+  - mypy
+  - pre-commit
+  - pytest
+  - pytest-cov
+  - python=3.8
+  - sphinx >= 1.7
+  - sphinx-automodapi
+  - sphinxcontrib-napoleon
+  - sphinx_rtd_theme
+  ## jupyter lab/notebook tools
+  - ipykernel
+  - nb_black
+  - watermark
+  - jupyterlab
+  ## course libraries
+  - matplotlib
+  - seaborn
+  - pandas
+  - geopandas
+  - libpysal
+  - mapclassify
+  - statsmodels
+  - networkx
+  - spectra
+  - descartes
+  - scikit-learn
+  - wordcloud
+  - pip
+  - graph-tool
+  - cytoolz
+  - pip:
+    - scattertext
+    - KDEpy
+    - adjustText
