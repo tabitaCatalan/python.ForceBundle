@@ -47,18 +47,30 @@ This will add also jupyter notebooks and some plotting libraries such as matplot
 ```
 conda env create --name forcebundle --file environment.yml
 ```
-2. Install AVES
+2. Download AVES source code
 ```
 # download files from AVES repo
 $ git submodule update --init --recursive
-
+```
+3. Install AVES
+```
 # move to AVES directory
 $ cd lib/aves
+
+# activate env 
+$ conda activate forcebundle
 
 # install AVES
 pip install . 
 ```
+4. Install forcebundle
+```
+# move back to forcebundle directory 
+$ cd ../..
 
+# install forcebundle
+$ pip install .
+```
 
 
 ## Quick start
