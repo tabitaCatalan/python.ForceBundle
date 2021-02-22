@@ -3,7 +3,7 @@ channels:
   - defaults
 dependencies:
   - numba >= 0.4 
-  - tdqm 
+  - tqdm 
   # aves 
   - black
   - configparser
