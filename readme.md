@@ -7,6 +7,59 @@
 ## Description
 python.ForceBundle is a python implementation of [Force-directed Edge Bungling for Graph Visualization](https://classes.engineering.wustl.edu/cse557/readings/holten-edgebundling.pdf), which trough organic bundling of edges, make easy to visualize patterns on otherwise visually clutter diagrams.
 
+## Installation
+
+Clone the branch `tabita_practica` of this repository. 
+
+```
+$ git clone https://github.com/tabitaCatalan/python.ForceBundle.git forcebundle
+$ cd forcebundle
+$ git checkout tabita_practica
+```
+
+### Installation options 
+
+You should use a virtual environment with Python 3.x. In **Option 1** and **Option 2**, you need to do it before running the `pip` command. In **Option 3** we'll create one using [Conda](https://docs.conda.io/en/latest/index.html).
+
+**Option 1: Minimum requirements**
+
+If you only want to use the minimum requirements, just write
+
+```
+$ pip install .
+```
+
+**Option 2: Run example notebooks**
+
+If you want to learn how to use the package by running the example notebooks, you can write:
+
+```
+$ pip install .[plots]
+```
+
+This will add also jupyter notebooks and some plotting libraries such as matplotlib if they are not available.
+
+**Option 3: Run `aves` example notebook**
+
+[AVES: Analysis & Visualization -- Education & Support](https://github.com/zorzalerrante/aves), by Eduardo Graells-Garrido, is a GitHub repository including the dataset of urban movility [Encuesta de Origen y Destino de Viajes Santiago 2012](https://datos.gob.cl/dataset/31616). It also has some nice plotting features that we use in `aves` notebook. AVES is included as a submodule of this repository, but it's not downloaded automatically when you clone this repo. To run this notebook, you can do the following: 
+
+1. Create a environment with the necesary dependencies. If you use Conda, you can use the `environment.yml` file to create a `forcebundle` environment with Python 3.8.
+```
+conda env create --name forcebundle --file environment.yml
+```
+2. Install AVES
+```
+# download files from AVES repo
+$ git submodule update --init --recursive
+
+# move to AVES directory
+$ cd lib/aves
+
+# install AVES
+pip install . 
+```
+
+
 
 ## Quick start
 Download ```ForcedirectedEdgeBundling.py``` to you project dir, and use it like this:
