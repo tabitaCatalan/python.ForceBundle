@@ -2,7 +2,8 @@
 #### Python / numba [Force-directed Edge Bungling for Graph Visualization](https://classes.engineering.wustl.edu/cse557/readings/holten-edgebundling.pdf)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Build Status](https://travis-ci.com/verasativa/python.ForceBundle.svg?branch=master)](https://travis-ci.com/verasativa/python.ForceBundle)
-![](doc_assets/trips-comparative.png)
+![](doc_assets/prefb.png)
+![](doc_assets/posfb.png)
 
 ## Description
 python.ForceBundle is a python implementation of [Force-directed Edge Bungling for Graph Visualization](https://classes.engineering.wustl.edu/cse557/readings/holten-edgebundling.pdf), which trough organic bundling of edges, make easy to visualize patterns on otherwise visually clutter diagrams.
