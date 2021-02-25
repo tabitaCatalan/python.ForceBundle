@@ -22,7 +22,7 @@ $ git checkout tabita_practica
 
 You should use a virtual environment with Python 3.x. In **Option 1** and **Option 2**, you need to do it before running the `pip` command. In **Option 3** we'll create one using [Conda](https://docs.conda.io/en/latest/index.html).
 
-**Option 1: Minimum requirements**
+**Option 1: Minimal requirements**
 
 If you only want to use the minimum requirements, just write
 
@@ -61,8 +61,8 @@ $ cd lib/aves
 # activate env 
 $ conda activate forcebundle
 
-# install AVES
-pip install . 
+# install AVES in editable mode
+pip install -e . 
 ```
 4. Install forcebundle
 ```
