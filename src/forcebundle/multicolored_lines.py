@@ -82,12 +82,7 @@ def _y(line):
     return np.array([node.y for node in line])
 
 
-
-import multicolored_lines as mcl
-from mpl_toolkits.axes_grid1 import make_axes_locatable
-
-#import importlib
-#importlib.reload(mcl)
+#from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 def calculate_new_borders(bounds, margin):
     (minx, maxx, miny, maxy) = bounds
