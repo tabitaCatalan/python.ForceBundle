@@ -6,7 +6,7 @@ Based on Vera Sativa's codes
 """
 
 import csv 
-import ForcedirectedEdgeBundling as feb
+import forcebundle.ForcedirectedEdgeBundling as feb
 import math
 from numba import float32, jit, prange, float64, njit
 from numba.experimental import jitclass
